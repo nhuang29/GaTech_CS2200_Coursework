@@ -66,10 +66,13 @@ To compile all of the code, use the following command:
 $ make
 To run the server on linux, use the following command to run the server:
 $ python rtp-server -p [port number] [-c corruption_rate]
+
 Regardless of operating system, make sure that python is bound to python 2. The server will not run on python 3! Your client should work with an UNMODIFIED version of the server. For example, if you wanted to run a server on port 8080 with a corruption rate of 99%, you would execute the following command:
 $ python rtp-server.py -p 8080 -c .99
+
 If you wanted to run a client that would send messages to this server, you would then execute the following command (in a different terminal):
 $ ./rtp-client 127.0.0.1 8080
+
 The server will take the client’s messages and then convert them into Pig Latin. The server will be printing out debug statements in order for you to understand what it is doing.
 
 
