@@ -26,7 +26,7 @@ We have provided you with code that implements the network protocol:
 
 *The client program takes two arguments. The first argument is the server it should connect to (such as localhost), and the second argument is the port it should connect to (such as 4000). Thus, the client can be run as follows: $ ./rtp-client localhost 4000
 
-##High-level Logic
+## High-level Logic
 The client.c program represents the application layer. It uses the services provided by the transport layer (rtp.c). It begins by connecting to the remote host. Look at the rtp connect connection in rtp.c. It simply uses the services provided by the network layer to connect to the remote host. Next, the rtp connect function initializes its rtp connection structure, initializes its send and receive queue, initializes its mutexes, starts its threads, and returns the rtp connection structure.
 
 Next, the client program sends a message to the remote host using rtp send message(). Sending the message could take quite some time if the network connection is slow (imagine sending a 5MB file over a 56k modem). Thus, the rtp send message() message makes a copy of the information to send, places the message into a send queue, and returns so that the application can continue to do other things. A separate thread, the rtp send thread actually sends the data across the network. It waits for a message to be placed into the send queue, then extracts that message from the queue and sends it.
@@ -34,7 +34,7 @@ Next, the client program sends a message to the remote host using rtp send messa
 Next, the client program receives a message from the network. What happens if a message isn’t available or the entire message has not yet been received? The rtp receive message() function blocks until a message can be pulled from the receive queue. The rtp recv thread actually receives packets from the network and reassembles the packets into messages. Once it receives a message, it places the message into the receive queue so that rtp receive message can extract it and return it to the application layer.
 The client program continues to send and receive messages until it is finished. Last, the client program calls rtp disconnect() to terminate the connection with the remote host. This function changes the state of the connection so that other threads will know that this connection is dead. The rtp disconnect() function then calls net disconnect(), signals the other threads, waits for the threads to finish, empties the queues, frees allocated space, and returns.
 
-##Packets and Types
+## Packets and Types
 For the purposes of this project, there are four packet types:
 • DATA - a data packet that contains part of a message in its payload.
 • LAST DATA - just like a data packet, but also signifies that it is the last packet in a message. • ACK - acknowledges the receipt of the last packet
