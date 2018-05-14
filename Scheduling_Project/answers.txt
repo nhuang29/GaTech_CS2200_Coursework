@@ -1,0 +1,34 @@
+CS 2200 Spring 2018
+Project 4
+
+Name:Nicholas Huang
+GT Username:nhuang35
+
+Problem 1B
+----------
+1:389.9 s
+2:92.2 s
+4:0.3 s
+
+There isn't a linear relationship between the number of CPU's and execution time. There is some degree of improvement from 1 core to 2 cores to 4 cores. Also, the more cores there are, the more I/O bound. This holds up getting processes done and holds up the entire computer. The I/O queues are longer and longer as the number of cores increase.
+
+Problem 2B
+----------
+timeslice:
+2:285.2 s
+4:298.8 s
+6:314.5 s
+8:325.4 s
+
+The waiting time does decreases with shorter timeslices because the as the timeslices decrease, the time spent in ready-states decreases since the switching of processes is faster. The shortest timeslice isn't the best choice because shorter timeslices means more switching of processes which could prolong the amount of time to complete a process. 
+
+Problem 3B
+----------
+It is impossible implement SRTF precisely in real life because it is pretty much impossible to predict the CPU burst time for a task. You can't actually come up exact numbers, only approximations.   
+
+The STRF is the fastest one. FIFO is the slowest, Round Robin is the second fastest, and STRF is the fastest. This is because STRF prioritizes getting the fastest processes done first so it eliminates the convoy effect that is possible in FIFO. (Convoy effect is where processes don't get done or don't make any progress). However, starvation is a flaw of STRF occurred during the tests.
+
+FIFO:389.9 s
+RR at 4:298.8 s
+STRF:160.9 s
+
