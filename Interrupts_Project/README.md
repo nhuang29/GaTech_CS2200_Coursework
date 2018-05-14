@@ -1,4 +1,5 @@
 # Interrupts Project
+### Brandonsim is a modified version of a software that simulates processor activity
 1 Introduction
 We have spent the last few weeks implementing our 32-bit datapath. The simple 32-bit GT-2200 is capable of performing advanced computational tasks and logical decision making. Now it is time for us to move on to something more advanced–the upgraded GT-2200a enables the ability for programs to be interrupted. Your assignment is to fully implement and test interrupts using the provided datapath and Brandonsim. You will hook up the various interrupt and data lines to the new devices, modify the datapath and microcontroller to support interrupt operations, and write interrupt handlers to operate these new devices.
 
